@@ -7,10 +7,35 @@ const tabListContent = [
     Demo: [
       {
         img: "Wordle-Clash",
-        routerPath: "/event-organizer",
+        url: "https://wordle-clash.herokuapp.com",
         css: { background: "#FFEBDD" },
         title: "Wordle-Clash",
-        subTitle: `Web Sockets, Node, JavaScript, Express, Postgres`,
+        subTitle: `Web Sockets, Node.js, JavaScript, Express, Postgres`,
+        description: "A competitive twist on the popular web game Wordle",
+        viewPage: "View Demo",
+        clasName: `view-page`,
+        animDealy: "",
+        sticker: "",
+      },
+      {
+        img: "ev-logo",
+        url: "https://wordle-clash.herokuapp.com",
+        css: { background: "#dff1ee" },
+        title: "EV and Chill",
+        subTitle: `Node.js, Express, React, MongoDB, JavaScript`,
+        description: "Find electric vehicle charging stations and things to do nearby",
+        viewPage: "View Demo",
+        clasName: `view-page`,
+        animDealy: "",
+        sticker: "",
+      },
+      {
+        img: "sos-logo",
+        url: "https://sos-cocktails.herokuapp.com/",
+        css: { background: "#a0a2a1" },
+        title: "S.O.S. Cocktails",
+        subTitle: `Node.js, Postgres, Express, React, JavaScript`,
+        description: "Find drink recommendations based on ingredients you own",
         viewPage: "View Demo",
         clasName: `view-page`,
         animDealy: "",
@@ -18,16 +43,16 @@ const tabListContent = [
       },
       {
         img: "Aural-Connectors",
-        routerPath: "/project-management",
+        url: "https://aural-connectors.surge.sh/",
         css: { background: "#e4f6fb" },
         title: "Aural-Connectors",
         subTitle: `HTML, CSS, JavaScript`,
+        description: "Finding concerts near you",
         viewPage: "View Demo",
         clasName: `view-page`,
-        animDealy: "200",
+        animDealy: "",
         sticker: "",
       },
-
     ],
   },
 ];
@@ -35,12 +60,8 @@ const tabListContent = [
 const PreviewGallery = () => {
   return (
     <div className="preview-gallery-wrapper">
-      <Tabs>
-        {/* End tablist */}
-
         {tabListContent.map((tabContent, i) => (
-          <TabPanel key={i}>
-            <div className="mixitUp-container demo-last-unpointer">
+            <div className="mixitUp-container">
               {tabContent.Demo.map((val, i) => (
                 <div
                   className="mix event "
@@ -49,11 +70,12 @@ const PreviewGallery = () => {
                   data-aos-duration="1200"
                   data-aos-delay={val.animDealy}
                 >
-                  <Link
-                    to={val.routerPath}
+                  <a
+                    href={val.url}
                     className="img-meta"
                     style={val.css}
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <img
                       src={`images/preview/${val.img}.jpg`}
@@ -61,16 +83,15 @@ const PreviewGallery = () => {
                     />
                     <span className={val.clasName}>{val.viewPage}</span>
                     <div className="new-page">{val.sticker}</div>
-                  </Link>
+                  </a>
 
                   <div className="page-name font-rubik">{val.title}</div>
                   <div className="page-category font-rubik">{val.subTitle}</div>
+                  <div className="page-description font-rubik">{val.description}</div>
                 </div>
               ))}
             </div>
-          </TabPanel>
         ))}
-      </Tabs>
     </div>
   );
 };
