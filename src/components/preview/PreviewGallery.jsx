@@ -19,7 +19,7 @@ const tabListContent = [
       },
       {
         img: "ev-logo",
-        url: "https://wordle-clash.herokuapp.com",
+        url: "https://evandchill.herokuapp.com",
         css: { background: "#dff1ee" },
         title: "EV and Chill",
         subTitle: `Node.js, Express, React, MongoDB, JavaScript`,
